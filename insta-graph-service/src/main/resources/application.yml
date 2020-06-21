@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: insta-graph
+
+  data:
+    neo4j:
+      uri: bolt://localhost:7687
+      username: neo4j
+      password: admin
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          configuration:
+            key:
+              deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        bindings:
+          momentsUserChanged:
+            consumer:
+              startOffset: latest
+              autoCommitOffset: false
+      bindings:
+        momentsUserChanged:
+          destination: moments.user.changed
+          contentType: application/json
+          group: graphService
+          consumer:
+            startOffset: latest
+            autoCommitOffset: false
+
+server:
+  port: 8002
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+security:
+  basic:
+    enable: false
+
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey

@@ -1,0 +1,35 @@
+.ant-menu-horizontal {
+  line-height: 77px;
+}
+
+/* .ant-menu-horizontal > .ant-menu-item:hover {
+  border-bottom: none;
+  color: #000;
+} */
+
+.app-logo-container a {
+  font-family: Titillium Web;
+  text-decoration: none;
+  line-height: 64px;
+  font-size: 24px;
+  display: inline-block;
+  color: #201c1c !important;
+  font-weight: 700;
+}
+
+.app-logo-container a:hover {
+  text-decoration: none;
+}
+
+.app-logo-container img {
+  width: 160px;
+}
+
+.app-menu > li {
+  font-size: 24px;
+}
+
+.app-menu i {
+  font-size: 24px !important;
+  min-width: 24px !important;
+}
